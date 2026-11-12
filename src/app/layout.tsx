@@ -91,7 +91,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <div id="top" className="flex min-h-svh flex-col">
+          <div id="top" className="flex min-h-svh flex-col overflow-x-clip">
             <a
               href="#main"
               className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[4px] focus:bg-brand focus:px-3 focus:py-2 focus:text-xs focus:text-brand-foreground"

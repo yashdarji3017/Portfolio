@@ -78,7 +78,7 @@ export function About() {
                   <span className="text-muted-foreground">currently: </span>
                   {`"${profile.availability}"`}
                 </p>
-                <p>
+                <p className="break-all">
                   <span className="text-muted-foreground">contact: </span>
                   {`"${profile.email}"`}
                 </p>

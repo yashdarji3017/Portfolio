@@ -97,13 +97,11 @@
     scroll-behavior: smooth;
     /* Keep anchored sections clear of the fixed navbar */
     scroll-padding-top: 4.5rem;
-    overflow-x: clip;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: clip;
     min-width: 320px;
   }
 

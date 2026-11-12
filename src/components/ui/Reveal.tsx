@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 interface RevealProps {
   children: ReactNode;
@@ -13,20 +13,35 @@ interface RevealProps {
 /**
  * Subtle entrance animation: 12px rise + fade, plays once when the block
  * scrolls into view. Fully disabled when the visitor prefers reduced motion.
+ * Includes a safety timeout fallback to prevent blank content on mobile/WebKit
+ * if IntersectionObserver is delayed or fails to compute root bounds.
  */
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.05 });
+  const [forceVisible, setForceVisible] = useState(false);
+
+  useEffect(() => {
+    // Safety fallback: guaranteed visibility even if viewport calculation fails on mobile
+    const timer = setTimeout(() => {
+      setForceVisible(true);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (shouldReduceMotion) {
     return <div className={className}>{children}</div>;
   }
 
+  const isVisible = isInView || forceVisible;
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -64px 0px" }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
       transition={{ duration: 0.45, ease: "easeOut", delay }}
     >
       {children}
