@@ -16,7 +16,7 @@ export function About() {
 
         <div className="grid gap-10 md:grid-cols-[1fr_300px] md:gap-16">
           <Reveal>
-            <div className="space-y-5 text-[15px] leading-relaxed text-foreground/85">
+            <div className="min-w-0 space-y-5 text-[15px] leading-relaxed text-foreground/85">
               {profile.about.map((paragraph) => (
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
               ))}
@@ -26,15 +26,15 @@ export function About() {
           <Reveal delay={0.1}>
             <aside
               aria-label="Profile summary"
-              className="overflow-hidden rounded-[5px] border border-border bg-foreground/[0.02] font-mono text-xs text-foreground"
+              className="mx-auto w-full max-w-sm overflow-hidden rounded-[5px] border border-border bg-foreground/[0.02] font-mono text-xs text-foreground md:mx-0 md:max-w-none"
             >
-              <div className="relative aspect-square w-full border-b border-border bg-secondary">
+              <div className="relative aspect-[4/3] w-full border-b border-border bg-secondary sm:aspect-square">
                 <Image
                   src={profile.avatarUrl}
                   alt={profile.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 300px"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="p-5 leading-[2]">

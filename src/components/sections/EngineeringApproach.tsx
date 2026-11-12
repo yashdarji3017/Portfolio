@@ -65,7 +65,7 @@ export function EngineeringApproach() {
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div>
+                <div className="min-w-0">
                   <h3 className="text-[15px] font-medium tracking-tight text-foreground">
                     {principle.title}
                   </h3>

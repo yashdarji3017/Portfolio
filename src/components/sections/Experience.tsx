@@ -25,19 +25,19 @@ export function Experience() {
         <div className="divide-y divide-border">
           {roles.map((role, index) => (
             <Reveal key={role.id} delay={index * 0.04}>
-              <article className="grid gap-2 py-7 md:grid-cols-[10rem_1fr] md:gap-8">
+              <article className="grid gap-2 py-6 sm:py-7 md:grid-cols-[10rem_1fr] md:gap-8">
                 <div className="md:pt-0.5">
                   <p className="font-mono text-[11px] leading-5 text-muted-foreground">
                     {role.period}
                   </p>
                   {role.location ? (
-                    <p className="mt-1 font-mono text-[10px] text-muted-foreground/70">
+                    <p className="mt-0.5 font-mono text-[10px] text-muted-foreground/70 sm:mt-1">
                       {role.location}
                     </p>
                   ) : null}
                 </div>
 
-                <div>
+                <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                     <h3 className="text-[15px] font-medium tracking-tight text-foreground">
                       {role.title}
@@ -82,7 +82,7 @@ export function Experience() {
                     ))}
                   </ul>
 
-                  <p className="mt-5 font-mono text-[11px] text-muted-foreground/70">
+                  <p className="mt-4 break-words font-mono text-[11px] leading-relaxed text-muted-foreground/70 sm:mt-5">
                     {role.stack.join(" / ")}
                   </p>
                 </div>
@@ -92,7 +92,7 @@ export function Experience() {
         </div>
 
         {education.length > 0 ? (
-          <div className="mt-14">
+          <div className="mt-12 sm:mt-14">
             <h3 className="font-mono text-xs uppercase tracking-[0.22em] text-foreground">
               Education
             </h3>
@@ -105,7 +105,7 @@ export function Experience() {
                   <p className="font-mono text-[11px] leading-5 text-muted-foreground">
                     {entry.period}
                   </p>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-sm font-medium text-foreground">{entry.degree}</p>
                     <p className="mt-0.5 text-sm text-muted-foreground">{entry.school}</p>
                     {entry.note ? (

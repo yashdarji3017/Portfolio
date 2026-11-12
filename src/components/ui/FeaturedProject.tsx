@@ -61,7 +61,7 @@ export function FeaturedProject({ project }: { project: Project }) {
 
       {/* Body: narrative left, evidence right */}
       <div className="grid divide-y divide-border md:grid-cols-[1.15fr_0.85fr] md:divide-x md:divide-y-0">
-        <div className="space-y-6 px-5 py-6 md:px-6 md:py-7">
+        <div className="min-w-0 space-y-6 px-4 py-5 sm:px-5 sm:py-6 md:px-6 md:py-7">
           <LabeledBlock label="Problem" text={project.problem} />
           <LabeledBlock label="Solution" text={project.solution} />
           <LabeledList label="Engineering decisions" items={project.decisions} />
@@ -74,12 +74,12 @@ export function FeaturedProject({ project }: { project: Project }) {
             <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
               Stack
             </p>
-            <p className="font-mono text-xs leading-relaxed text-muted-foreground">
+            <p className="break-words font-mono text-xs leading-relaxed text-muted-foreground">
               {project.stack.join(" / ")}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-5 pt-1">
+          <div className="flex flex-wrap gap-4 pt-1 sm:gap-5">
             {project.github ? (
               <a
                 href={project.github}
@@ -112,7 +112,7 @@ export function FeaturedProject({ project }: { project: Project }) {
           </div>
         </div>
 
-        <div className="space-y-6 bg-foreground/[0.02] px-5 py-6 md:px-6 md:py-7">
+        <div className="min-w-0 space-y-6 bg-foreground/[0.02] px-4 py-5 sm:px-5 sm:py-6 md:px-6 md:py-7">
           <div>
             <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
               Architecture

@@ -45,12 +45,12 @@ export function Writing() {
                   {isPublished ? (
                     <a
                       href={note.href}
-                      className="transition-colors hover:text-brand"
+                      className="min-w-0 break-words transition-colors hover:text-brand"
                     >
                       {title}
                     </a>
                   ) : (
-                    <div>{title}</div>
+                    <div className="min-w-0 break-words">{title}</div>
                   )}
 
                   <div className="col-span-2 flex items-center gap-3 sm:col-span-1">

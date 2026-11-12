@@ -21,12 +21,12 @@ interface ContactRowProps {
 
 function ContactRow({ icon: Icon, label, children }: ContactRowProps) {
   return (
-    <div className="flex items-center gap-4 py-4 sm:gap-6">
+    <div className="flex items-center gap-3 py-3.5 sm:gap-6 sm:py-4">
       <Icon aria-hidden className="h-4 w-4 shrink-0 text-muted-foreground" />
-      <span className="w-16 shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground sm:w-20">
+      <span className="w-14 shrink-0 font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground sm:w-20 sm:text-[11px]">
         {label}
       </span>
-      <div className="flex flex-1 flex-wrap items-center justify-between gap-3">
+      <div className="flex flex-1 min-w-0 flex-wrap items-center justify-between gap-2 sm:gap-3">
         {children}
       </div>
     </div>
@@ -34,7 +34,7 @@ function ContactRow({ icon: Icon, label, children }: ContactRowProps) {
 }
 
 const valueLinkClass =
-  "text-sm text-foreground underline-offset-4 transition-colors hover:text-brand hover:underline";
+  "min-w-0 break-all text-xs text-foreground underline-offset-4 transition-colors hover:text-brand hover:underline sm:break-normal sm:text-sm";
 
 /** Minimal contact section: one headline, one paragraph, working links. */
 export function Contact() {

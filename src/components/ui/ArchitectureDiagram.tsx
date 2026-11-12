@@ -12,21 +12,23 @@ export function ArchitectureDiagram({
   lines: NonNullable<Project["architecture"]>;
 }) {
   return (
-    <pre className="overflow-x-auto font-mono text-[11.5px] leading-[1.9] text-muted-foreground">
-      {lines.map((line, index) => {
-        // Root nodes (no tree indentation) anchor the diagram.
-        const isRoot = index === 0 && !line.startsWith(" ");
-        return (
-          <span
-            key={index}
-            className={`block transition-colors duration-150 hover:text-foreground ${
-              isRoot ? "text-foreground/80" : ""
-            }`}
-          >
-            {line || " "}
-          </span>
-        );
-      })}
-    </pre>
+    <div className="w-full overflow-hidden rounded-[4px] border border-border/60 bg-background/50 p-3 sm:p-4">
+      <pre className="overflow-x-auto font-mono text-[10.5px] leading-[1.8] text-muted-foreground sm:text-[11.5px] sm:leading-[1.9]">
+        {lines.map((line, index) => {
+          // Root nodes (no tree indentation) anchor the diagram.
+          const isRoot = index === 0 && !line.startsWith(" ");
+          return (
+            <span
+              key={index}
+              className={`block whitespace-pre transition-colors duration-150 hover:text-foreground ${
+                isRoot ? "font-medium text-foreground/85" : ""
+              }`}
+            >
+              {line || " "}
+            </span>
+          );
+        })}
+      </pre>
+    </div>
   );
 }

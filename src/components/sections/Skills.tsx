@@ -27,13 +27,13 @@ export function Skills() {
         <div className="divide-y divide-border">
           {skillGroups.map((group) => (
             <Reveal key={group.id}>
-              <div className="grid gap-2 py-5 md:grid-cols-[220px_1fr] md:gap-8">
+              <div className="grid gap-1.5 py-4 sm:gap-2 sm:py-5 md:grid-cols-[220px_1fr] md:gap-8">
                 <h3 className="pt-0.5 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
                   {group.label}
                 </h3>
-                <p className="text-[13px] leading-6 text-foreground/85">
+                <p className="min-w-0 break-words text-[13px] leading-6 text-foreground/85">
                   {group.items.map((item, index) => (
-                    <span key={item}>
+                    <span key={item} className="inline-block">
                       {item}
                       {index < group.items.length - 1 ? (
                         <span aria-hidden className="mx-2 text-border">
